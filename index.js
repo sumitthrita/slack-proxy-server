@@ -1,6 +1,7 @@
 const express = require('express');
 const axios = require('axios');
 const app = express();
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
@@ -20,8 +21,6 @@ app.post('/slack/webhook', async (req, res) => {
     res.status(500).send('Failed to forward');
   }
 });
-
-const port = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Slack proxy server running on http://localhost:${PORT}/slack/webhook`);
+app.listen(port, () => {
+  console.log(`Slack proxy server running on http://localhost:${port}/slack/webhook`);
 });
