@@ -21,6 +21,11 @@ app.post('/slack/webhook', async (req, res) => {
     res.status(500).send('Failed to forward');
   }
 });
+
+app.get('/home', (req, res) => {
+  res.json({ success: true, message: "Welcome to the home endpoint" });
+});
+
 app.listen(port, () => {
-  console.log(`Slack proxy server running on http://localhost:${port}/slack/webhook`);
+  console.log(`Slack proxy server running on http://localhost:${port}/home`);
 });
