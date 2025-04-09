@@ -21,7 +21,7 @@ app.post('/slack/webhook', async (req, res) => {
   }
 });
 
-const PORT = 3001;
+const port = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Slack proxy server running on http://localhost:${PORT}/slack/webhook`);
 });
