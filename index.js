@@ -26,6 +26,10 @@ app.get('/home', (req, res) => {
   res.json({ success: true, message: "Welcome to the home endpoint" });
 });
 
+app.get('/health', (req, res) => {
+  res.json({ success: true, message: "You have running server" });
+});
+
 app.listen(port, () => {
   console.log(`Slack proxy server running on http://localhost:${port}/home`);
 });
